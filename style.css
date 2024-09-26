@@ -1,0 +1,1537 @@
+/*---------------------Fonts-----------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/*---------------------Fonts-----------------*/
+
+/*---------------------Roots-----------------*/
+
+:root {
+    ---red: #c30008;
+    ---white: #ffffff;
+    ---grey: #78787c;
+    ---lightgray: #3b3b3b;
+    ---black: #222222;
+    ---darkblack:#111111;
+}
+
+/*---------------------Roots-----------------*/
+
+/*---------------------Bodys----------------*/
+* {
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    scroll-padding-top: 0px;
+    background-image: url(img/bac.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+section {
+    padding: 20px 120px;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+.circle-cursor {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 2px solid #ffffff75;
+    border-radius: 100%;
+    pointer-events: none; /* Prevents interference with element clicks */
+    transform: translate(-50%, -50%);
+    transition: 0.2s all linear;
+}
+/*---------------------Bodys----------------*/
+
+/*Arrow*/
+.uppericon{
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    color: var(---white);
+    display: none;
+    transition: 0.5s all linear;
+}
+/*Arrow*/
+
+/*Animation*/
+.loading{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(---white);
+    z-index: 1000;
+}
+.loading img{
+    width: 15%;
+}
+.dispper{
+    animation: vanish 1s forwards;
+}
+@keyframes vanish {
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/*Animation*/
+
+.header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 7;
+    transition: background-color 0.3s, backdrop-filter 0.3s;
+}
+
+.header.glass {
+    backdrop-filter: blur(20px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.075);
+}
+
+.header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .container .navbar .data a {
+    font-size: 18px;
+    color: var(---white);
+    padding: 0px 20px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.header .container .navbar .data a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(---red);
+    transition: width 0.5s ease;
+}
+
+.header .container button {
+    background-color: transparent;
+    border: 2px solid var(---white);
+    width: 180px;
+    height: 70px;
+    color: var(---white);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.header .container button:hover {
+    border: none;
+    transform: scale(1.1) rotate(5deg);
+    background-color: var(---red);
+    color: var(---white);
+}
+
+.header .container .navbar .data a:hover {
+    color: var(---red);
+}
+
+.header .container .navbar .data a:hover::after {
+    width: 100%;
+}
+
+.header .container .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header .container .right #menu {
+    color: var(---white);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    border: 2px solid var(---white);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    display: none;
+}
+
+.header .container .right #menu:hover {
+    border: 2px solid var(---red);
+    color: var(---red);
+}
+
+.header .container .navbar.active {
+    top: 0px;
+    transition: 0.3s all linear;
+}
+
+.header .container .navbar #close {
+    font-size: 25px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: var(---white);
+    display: none;
+    cursor: pointer;
+}
+
+/*-----------Hero Area---------*/
+.hero {
+    position: absolute;
+    z-index: -1;
+    background-color: transparent;
+    width: 100%;
+    top: 0;
+    right: 0px;
+    position: relative;
+}
+
+.hero canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.hero .container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.hero .container .scrolling-text {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.hero .container .scrolling-text h1 {
+    color: var(---white);
+    font-size: 200px;
+    font-weight: 800;
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 0.466);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.hero .container .toptext {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0px 150px;
+    top: -50px;
+    z-index: 7;
+}
+
+.hero .container .toptext p {
+    color: var(---white);
+    font-size: 25px;
+    font-weight: 400;
+}
+
+/*-----------Hero Area---------*/
+
+/*-----------PortFolio---------*/
+.port {
+    margin-top: 150px;
+}
+
+.port .container .col-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.port .container .col-1 .box img {
+    border-radius: 20px;
+}
+
+.port .container #col-2 {
+    margin-top: 30px;
+}
+
+/*-----------PortFolio---------*/
+
+
+/*--------------Video Section------------*/
+.videos {
+    margin-top: 150px;
+}
+
+.video-section {
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#customVideo {
+    width: 100%;
+    display: block;
+    border: 2px solid rgba(255, 255, 255, 0.473);
+    border-radius: 20px;
+}
+
+.custom-play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.26);
+    color: white;
+    border: 2px solid var(---white);
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    cursor: pointer;
+    display: none;
+}
+
+.video-section:hover .custom-play-btn {
+    display: block;
+}
+
+/*--------------Video Section------------*/
+
+/*--------------Heading Section------------*/
+.heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading h1 {
+    font-size: 60px;
+    color: var(---white);
+    font-weight: 600;
+    text-align: center;
+    line-height: 70px;
+}
+
+/*--------------Heading Section------------*/
+
+/*--------------LogoArea Section------------*/
+.logoarea {
+    margin-top: 150px;
+}
+
+.logoarea .container {
+    margin-top: 80px;
+}
+
+.logoarea .container .logocol-1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoarea .container .logocol-1 img {
+    opacity: 0.4;
+    cursor: pointer;
+}
+
+.logoarea .container .logocol-1 img:hover {
+    opacity: 100;
+    transition: 0.3s all linear;
+}
+.logoarea .container #logocol-2{
+    margin-top: 10px;
+}
+
+/*--------------LogoArea Section------------*/
+
+/*--------------Blog Section------------*/
+.blog{
+    margin-top: 150px;
+}
+.blog .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.blog .container .box .image{
+    background-color: transparent;
+}
+.blog .container .box .image img{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px 20px 0px 0px;
+}
+.blog .container .box{
+    width: 526px;
+    background-color: var(---darkblack);
+    border-radius: 20px;
+}
+.blog .container .box .text h1{
+    color: var(---white);
+    font-weight: 500;
+    font-size: 20px;
+}
+.blog .container .box .text .icon{
+    background-color: var(---lightgray);
+    width: 130px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+}
+.blog .container .box .text .icon i{
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(---white);
+}
+.blog .container .box .text{
+    padding: 30px;
+}
+.blog .container .box .text .icon p{
+    color: var(---white);
+    font-size: 12px;
+    margin-left: 5px;
+}
+.blog .container .box .text .iconbtn{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.blog .container .box .text #icon2{
+    margin-left: 10px;
+}
+/*--------------Blog Section------------*/
+
+/*--------------Footer Section------------*/
+.footer{
+    margin-top: 150px;
+    background-color: var(---darkblack);
+}
+.footer .container{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+.footer .container .nav .data a{
+    display: block;
+    color: var(---white);
+    font-weight: 400;
+    line-height: 40px;
+}
+.footer .container .nav .data a:hover{
+    color: var(---red);
+}
+.footer .container .nav .data{
+    margin-top: 20px;
+}
+.footer .container .nav h4{
+    color: var(---white);
+    font-size: 30px;
+    font-weight: 600;
+}
+.footer .last{
+    border-top: 1px solid var(---lightgray);
+    margin-top: 30px;
+}
+.footer .last .data{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.footer .last p{
+    color: var(---white);
+    font-size: 16px;
+}
+.footer .last  .privacy a{
+    color: var(---white);
+    font-size: 16px;
+}
+.footer .last .privacy #pri{
+    margin-right: 10px;
+}
+.footer .scrolling-text {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+.footer .scrolling-text h1 {
+    color: var(---white);
+    font-size: 200px;
+    font-weight: 800;
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation-name: scroll;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    text-shadow: 0px 10px 20px rgba(0, 0, 0, 0.466);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.footer .container .nav #dropicon{
+    color: var(---white);
+    font-size: 20px;
+    display: none;
+}
+
+/*--------------Footer Section------------*/
+
+
+
+
+
+/* media quries */
+
+@media (max-width:1815px) {
+    .port .container .col-1 .box img {
+        width: 100%;
+    }
+
+    .port .container .col-1 .box {
+        width: 330px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 250px;
+    }
+    .blog .container .box{
+        width: 480px;
+    }
+
+}
+
+@media (max-width:1772px) {
+    section {
+        padding: 20px 100px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 100px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 230px;
+    }
+}
+
+@media (max-width:1674px) {
+    section {
+        padding: 20px 80px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 80px;
+    }
+    .blog .container .box{
+        width: 450px;
+    }
+
+}
+
+@media (max-width:1590px) {
+    section {
+        padding: 20px 60px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 60px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 220px;
+    }
+    .blog .container .box{
+        width: 440px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 18px;
+    }
+}
+
+@media (max-width:1486px) {
+    .port .container .col-1 .box {
+        width: 300px;
+    }
+    .blog .container .box{
+        width: 420px;
+    }
+}
+
+@media (max-width:1390px) {
+    section {
+        padding: 20px 40px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 40px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 200px;
+    }
+    .blog .container .box{
+        width: 390px;
+    }
+
+}
+
+@media (max-width:1280px) {
+
+    html {
+        font-size: 80%;
+    }
+
+    section {
+        padding: 20px 20px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 20px;
+    }
+
+    .header .container .navbar .data a {
+        font-size: 16px;
+        padding: 0px 15px;
+        padding-bottom: 10px;
+    }
+
+    .header .container button {
+        width: 160px;
+        height: 60px;
+        color: var(---white);
+        font-size: 16px;
+    }
+
+    .port .container .col-1 .box {
+        width: 280px;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 130px;
+    }
+
+    .videos {
+        margin-top: 130px;
+    }
+    .logoarea{
+        margin-top: 130px;
+    }
+    .blog{
+        margin-top: 130px;
+    }
+    .footer{
+        margin-top: 130px;
+    }
+
+    /*----------container spacing---------*/
+
+    /*----------Heading--------*/
+    .heading h1 {
+        font-size: 50px;
+    }
+
+    /*----------Heading--------*/
+    .logoarea .container .logocol-1 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .blog .container .box{
+        width: 350px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 16px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 100px;
+        height: 30px;
+    }
+    .blog .container .box .text .icon i{
+        font-size: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(---white);
+    }
+    .blog .container .box .text .icon p{
+        color: var(---white);
+        font-size: 9px;
+        margin-left: 5px;
+    }
+    .blog .container .box .text{
+        padding: 20px;
+    }
+}
+
+@media (max-width:1190px) {
+    .port .container .col-1 .box {
+        width: 260px;
+    }
+}
+
+@media (max-width:1110px) {
+    .port .container .col-1 .box {
+        width: 240px;
+    }
+}
+
+@media (max-width:1080px) {
+    section {
+        padding: 20px 15px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 15px;
+    }
+
+    .hero .container .scrolling-text h1 {
+        font-size: 150px;
+    }
+
+    .hero .container .toptext p {
+        color: var(---white);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 100px;
+    }
+
+    .videos {
+        margin-top: 100px;
+    }
+    .logoarea{
+        margin-top: 100px;
+    }
+    .logoarea .container{
+        margin-top: 80px;
+    }
+    .blog{
+        margin-top: 100px;
+    }
+    .blog .container{
+        margin-top: 80px;
+    }
+    .footer{
+        margin-top: 100px;
+    }
+
+    /*----------container spacing---------*/
+
+    .blog .container .box{
+        width: 320px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:1024px) {
+    section {
+        padding: 20px 15px;
+    }
+
+    .header .container .navbar .data a {
+        font-size: 14px;
+        padding: 0px 12px;
+    }
+
+    .header .container .logo {
+        width: 180px;
+    }
+
+    .header .container .logo img {
+        width: 100%;
+    }
+
+    .header .container button {
+        width: 140px;
+        height: 55px;
+        color: var(---white);
+        font-size: 14px;
+        border: 1px solid var(---white);
+    }
+
+    .header .container .navbar {
+        background-color: transparent;
+        margin-left: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: -1500%;
+        left: 0;
+        z-index: 7;
+        transition: 0.3s all linear;
+    }
+
+    .header .container .navbar .data {
+        width: 100%;
+        background-color: var(---black);
+        line-height: 100px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .header .container .navbar .data a {
+        display: block;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .header .container .right #menu {
+        display: inherit;
+        width: 50px;
+        height: 50px;
+        border: 1px solid var(---white);
+    }
+
+    .header .container .navbar #close {
+        display: inherit;
+    }
+
+    .port .container .col-1 .box img {
+        border-radius: 5px;
+    }
+
+    .port .container .col-1 .box {
+        width: 230px;
+        margin: 10px 10px;
+    }
+
+    .port .container .col-1 {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .blog .container {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .blog .container .box {
+        margin: 15px;
+    }
+    .footer .container{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .footer .container .nav{
+        margin: 20px;
+    }
+    .footer .container .nav .data{
+        margin-top: 10px;
+    }
+}
+
+@media (max-width:780px) {
+
+    section {
+        padding: 10px 10px;
+    }
+
+    .hero .container .toptext {
+        padding: 0px 10px;
+    }
+
+    .port .container #col-2 {
+        margin-top: 20px;
+    }
+
+    .port .container .col-1 .box {
+        width: 280px;
+        margin: 10px 10px;
+    }
+
+    .custom-play-btn {
+        border: 2px solid var(---white);
+        font-size: 16px;
+        width: 60px;
+        height: 60px;
+    }
+
+    /*----------Heading--------*/
+    .heading h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    /*----------Heading--------*/
+    .logoarea .container .logocol-1 img {
+        width: 280px;
+    }
+}
+
+@media (max-width:690px) {
+    .port .container .col-1 .box {
+        width: 230px;
+        margin: 10px 10px;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 80px;
+    }
+
+    .videos {
+        margin-top: 80px;
+    }
+    .logoarea{
+        margin-top: 80px;
+    }
+    .logoarea .container{
+        margin-top: 60px;
+    }
+    .blog{
+        margin-top: 80px;
+    }
+    .blog .container{
+        margin-top: 60px;
+    }
+    .footer{
+        margin-top: 80px;
+    }
+    /*----------container spacing---------*/
+    /*----------Heading--------*/
+    .heading h1 {
+        font-size: 30px;
+        line-height: 40px;
+    }
+
+    /*----------Heading--------*/
+    .logoarea .container .logocol-1 img {
+        width: 250px;
+    }
+    .blog .container .box{
+        width: 250px;
+        border-radius: 10px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 10px;
+    }
+    .blog .container .box .image img{
+        border-radius: 10px 10px 0px 0px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 80px;
+        height: 25px;
+    }
+    .blog .container .box .text .icon i{
+        font-size: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(---white);
+    }
+    .blog .container .box .text .icon p{
+        color: var(---white);
+        font-size: 7px;
+        margin-left: 2px;
+    }
+    .footer .last p{
+        color: var(---white);
+        font-size: 12px;
+    }
+    .footer .last  .privacy a{
+        color: var(---white);
+        font-size: 12px;
+    }
+}
+@media (max-width:600px) {
+    .blog .container .box{
+        width: 220px;
+        border-radius: 10px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 9px;
+    }
+    .blog .container .box .image img{
+        border-radius: 10px 10px 0px 0px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 70px;
+        height: 20px;
+    }
+    .blog .container .box {
+        margin: 10px;
+    }
+    .blog .container .box .text .iconbtn{
+        margin-top: 10px;
+    }
+    .blog .container .box .text #icon2{
+        margin-left: 5px;
+    }
+    .blog .container .box .text .icon i{
+        font-size: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(---white);
+    }
+    .blog .container .box .text .icon p{
+        color: var(---white);
+        font-size: 7px;
+        margin-left: 2px;
+    }
+}
+@media (max-width:550px) {
+    .hero .container .scrolling-text h1 {
+        font-size: 120px;
+    }
+
+    .hero .container .toptext p {
+        color: var(---white);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    .hero .container .toptext {
+        top: -20px;
+    }
+}
+
+@media (max-width:550px) {
+    .port .container .col-1 .box {
+        width: 200px;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 60px;
+    }
+
+    .videos {
+        margin-top: 60px;
+    }
+    .logoarea{
+        margin-top: 60px;
+    }
+    .logoarea .container{
+        margin-top: 50px;
+    }
+    .blog{
+        margin-top: 60px;
+    }
+    .blog .container{
+        margin-top: 50px;
+    }
+    .footer{
+        margin-top: 60px;
+    }
+
+    /*----------container spacing---------*/
+    .custom-play-btn {
+        border: 1px solid var(---white);
+        font-size: 11px;
+        width: 40px;
+        height: 40px;
+    }
+
+    #customVideo {
+        width: 100%;
+        display: block;
+        border: 1px solid rgba(255, 255, 255, 0.473);
+        border-radius: 10px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 230px;
+    }
+    .blog .container .box{
+        width: 200px;
+        border-radius: 10px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 9px;
+    }
+    .blog .container .box .image img{
+        border-radius: 10px 10px 0px 0px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 70px;
+        height: 20px;
+    }
+    .blog .container .box {
+        margin: 10px;
+    }
+    .blog .container .box .text .iconbtn{
+        margin-top: 10px;
+    }
+    .blog .container .box .text #icon2{
+        margin-left: 5px;
+    }
+    .blog .container .box .text .icon i{
+        font-size: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(---white);
+    }
+    .blog .container .box .text .icon p{
+        color: var(---white);
+        font-size: 7px;
+        margin-left: 2px;
+    }
+    .circle-cursor {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border: 2px solid #ffffff75;
+        border-radius: 100%;
+        pointer-events: none; /* Prevents interference with element clicks */
+        transform: translate(-50%, -50%);
+        transition: 0.2s all linear;
+    }
+}
+
+@media (max-width:500px) {
+    .hero .container .toptext p {
+        color: var(---white);
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    .port .container .col-1 .box {
+        width: 180px;
+    }
+
+    .port .container #col-2 {
+        margin-top: 10px;
+    }
+
+    .logoarea .container .logocol-1 img {
+        width: 200px;
+    }
+    .footer .last p{
+        color: var(---white);
+        font-size: 10px;
+    }
+    .footer .last  .privacy a{
+        color: var(---white);
+        font-size: 10px;
+    }
+}
+
+@media (max-width:450px) {
+    .header .container button {
+        width: 100px;
+        height: 45px;
+        color: var(---white);
+        font-size: 12px;
+        border: 1px solid var(---white);
+        border-radius: 5px;
+    }
+
+    .header .container .right #menu {
+        width: 45px;
+        height: 45px;
+        border-radius: 5px;
+        margin-right: 10px;
+    }
+
+    .header .container .logo {
+        width: 150px;
+    }
+
+    .hero .container .scrolling-text h1 {
+        font-size: 100px;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 40px;
+    }
+
+    .videos {
+        margin-top: 40px;
+    }
+    .logoarea{
+        margin-top: 40px;
+    }
+    .logoarea .container{
+        margin-top: 40px;
+    }
+    .blog{
+        margin-top: 40px;
+    }
+    .blog .container{
+        margin-top: 40px;
+    }
+    .footer{
+        margin-top: 40px;
+    }
+
+    /*----------container spacing---------*/
+
+    /*----------Heading--------*/
+    .heading h1 {
+        font-size: 25px;
+        line-height: 30px;
+    }
+
+    /*----------Heading--------*/
+    .logoarea .container .logocol-1 img {
+        width: 190px;
+    }
+    .blog .container .box{
+        width: 180px;
+        border-radius: 5px;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 8px;
+    }
+    .blog .container .box .image img{
+        border-radius: 5px 5px 0px 0px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 70px;
+        height: 20px;
+    }
+    .blog .container .box {
+        margin: 10px;
+    }
+    .blog .container .box .text .iconbtn{
+        margin-top: 5px;
+    }
+    .blog .container .box .text #icon2{
+        margin-left: 5px;
+    }
+    .blog .container .box .text .icon i{
+        font-size: 7px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(---white);
+    }
+    .blog .container .box .text .icon p{
+        color: var(---white);
+        font-size: 7px;
+        margin-left: 2px;
+    }
+    .blog .container .box .text{
+        padding: 10px;
+    }
+    .uppericon{
+        position: fixed;
+        right: 5%;
+        bottom: 1%;
+        color: var(---white);
+        display: none;
+        transition: 0.5s all linear;
+        width: 4%;
+    }
+    .uppericon img{
+        width: 100%;
+    }
+
+}
+
+@media (max-width:420px) {
+    .port .container .col-1 .box {
+        width: 150px;
+        margin: 10px 10px;
+    }
+    .footer .last p{
+        color: var(---white);
+        font-size: 8px;
+    }
+    .footer .last  .privacy a{
+        color: var(---white);
+        font-size: 8px;
+    }
+    .footer .last .privacy #pri{
+        margin-right: 2px;
+    }
+    .footer .container{
+        justify-content: left;
+    }
+}
+
+@media (max-width:400px) {
+    .header .container .logo {
+        width: 120px;
+    }
+
+    .header .container button {
+        width: 80px;
+        height: 35px;
+        color: var(---white);
+        font-size: 10px;
+        border: 1px solid var(---white);
+        border-radius: 5px;
+    }
+
+    .header .container .right #menu {
+        font-size: 12px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero .container .toptext p {
+        color: var(---white);
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .port .container .col-1 .box {
+        width: 80%;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 30px;
+    }
+
+    .videos {
+        margin-top: 30px;
+    }
+    .logoarea{
+        margin-top: 30px;
+    }
+    .logoarea .container{
+        margin-top: 30px;
+    }
+    .blog{
+        margin-top: 30px;
+    }
+    .blog .container{
+        margin-top: 30px;
+    }
+    .footer{
+        margin-top: 30px;
+    }
+
+    /*----------container spacing---------*/
+
+    .logoarea .container .logocol-1 img {
+        width: 80%;
+    }
+    .blog .container .box{
+        width: 80%;
+    }
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 12px;
+    }
+    .blog .container .box .text .icon{
+        background-color: var(---lightgray);
+        width: 90px;
+        height: 30px;
+    }
+    .blog .container .box .text .iconbtn{
+        margin-top: 10px;
+    }
+    .blog .container .box .text{
+        padding: 15px;
+    }
+    .footer .last{
+        border-top: 1px solid var(---lightgray);
+        margin-top: 10px;
+    }
+    .footer .container .nav h4{
+        color: var(---white);
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .footer .container .nav .data a{
+        display: block;
+        color: var(---white);
+        font-weight: 400;
+        line-height: 40px;
+        font-size: 12px;
+    }
+    .footer .scrolling-text h1 {
+        font-size: 100px;
+    }
+    .footer .container .logo{
+        width: 60%;
+    }
+    .footer .container .logo img{
+        width: 100%;
+    }
+    .footer .container .nav{
+        margin-top: 30px;
+    }
+
+}
+
+@media (max-width:350px) {
+    .header .container button {
+        width: 80px;
+        height: 35px;
+        color: var(---white);
+        font-size: 10px;
+        border: 1px solid var(---white);
+        border-radius: 5px;
+    }
+
+    .header .container .right #menu {
+        width: 35px;
+        height: 35px;
+        border-radius: 5px;
+        margin-right: 10px;
+        font-size: 12px;
+    }
+
+    .header .container .logo {
+        width: 120px;
+    }
+
+    .header .container .navbar {
+        background-color: transparent;
+        margin-left: 0px;
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        top: -1100%;
+        left: 0;
+        z-index: 7;
+        transition: 0.3s all linear;
+    }
+
+    .hero .container .scrolling-text h1 {
+        font-size: 80px;
+    }
+
+    /*----------container spacing---------*/
+    .port {
+        margin-top: 10px;
+    }
+
+    .videos {
+        margin-top: 10px;
+    }
+    .logoarea{
+        margin-top: 10px;
+    }
+    .logoarea .container{
+        margin-top: 10px;
+    }
+    .blog{
+        margin-top: 10px;
+    }
+    .blog .container{
+        margin-top: 10px;
+    }
+    .footer{
+        margin-top: 10px;
+    }
+
+    /*----------container spacing---------*/
+
+    /*----------Heading--------*/
+    .heading h1 {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    /*----------Heading--------*/
+    .blog .container .box .text h1{
+        color: var(---white);
+        font-weight: 600;
+        font-size: 11px;
+    }
+    .footer .last p{
+        color: var(---white);
+        font-size: 7px;
+    }
+    .footer .last  .privacy a{
+        color: var(---white);
+        font-size: 7px;
+    }
+    .footer .last .data{
+        margin-top: 10px;
+    }
+}
+
+/* media quries */
